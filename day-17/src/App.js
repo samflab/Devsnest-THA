@@ -1,14 +1,41 @@
 import './App.css';
 import Card from './components/Card';
+import {useState} from "react";
 
 function App() {
+  let [card, setCard] = useState([
+    {
+      calories: "180",
+      food: "Rajama Chawal"
+    },
+    {
+      calories: "100",
+      food: "Samosa"
+    },
+    {
+      calories: "50",
+      food: "Vegetable Saute"
+    },
+    {
+      calories: "75",
+      food: "Pizza"
+    },
+    {
+      calories: "98",
+      food: "Chowmein"
+    },
+    {
+      calories: "200",
+      food: "Kadhi Chawal"
+    },
+  ]);
   return (
     <div className="App">
-      <Card food ="Pizza" calories="156"/>
-      <Card food ="Rajma Chawal" calories="110"/>
-      <Card food ="Samosa" calories="80"/>
-      <Card food ="Vegetable Saute" calories="43"/>
-      <Card food ="Burger" calories="170"/>
+      {
+        card.map((item, index)=>(
+          <Card food={item.food} calories={item.calories} key={index} card={card} setCard={setCard} index={index}/>
+        ))
+      }
     </div>
   );
 }

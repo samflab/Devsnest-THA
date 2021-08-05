@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import {useEffect, useState} from "react";
 
+const Todo = ({todo, todos, setTodos, index})=>{
+  return(
+    <div className="todolist">
+      <h3>{todo}</h3>
+      <button onClick={()=>{
+        console.log("Delete =", todo);
+        const newTodo = todos.filter((el,i)=>i !== index);
+        setTodos(newTodo);
+      }}>delete</button>
+      
+    </div>
+  );
+}
 function App() {
+  const [value, setValue] = useState();
+  let [todos, setTodos] = useState(["Abc", "XYZ"]);
+  useEffect(()=>{
+    setTodos([])
+  },[]);
+  //todos = ["Abc", "XYZ"];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type="text" onChange={(e)=>{
+        setValue(e.target.value)
+      }}
+      value={value}></input>
+      <button onClick={()=>{
+        setTodos([...todos, value]);
+        setValue("");
+      }}>Add</button>
+      {
+        todos.map((todo, index)=>(
+          <Todo key={index} todo={todo} todos={todos} setTodos={setTodos} index={index}/>
+        ))
+      }
     </div>
   );
 }
