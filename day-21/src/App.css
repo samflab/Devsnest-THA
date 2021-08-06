@@ -1,3 +1,44 @@
 .App {
   text-align: center;
 }
+
+input{
+  padding: 10px;
+  border: 1px solid black;
+  margin: 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+label, h2{
+  color:steelblue;
+  font-weight: 700;
+  font-size:1.5rem;
+}
+
+button{
+  color:white;
+  background-color: steelblue;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+  margin: 5px;
+  border-radius: 10px;
+  border:none;
+}
+
+.card{
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgb(221, 232, 247);
+  margin:0% 30%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.text{
+  font-size: 1.2rem;
+  color: black;
+  font-weight: 500;
+}
