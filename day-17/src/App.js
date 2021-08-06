@@ -32,10 +32,14 @@ function App() {
   return (
     <div className="App">
       {
+      card.length ?
+      
         card.map((item, index)=>(
           <Card food={item.food} calories={item.calories} key={index} card={card} setCard={setCard} index={index}/>
         ))
-      }
+      :
+      <h3>No card left to display</h3>
+    }
     </div>
   );
 }
